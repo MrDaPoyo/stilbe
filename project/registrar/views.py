@@ -9,6 +9,8 @@ from django.contrib.auth import logout
 class RegisterForm(UserCreationForm):
     pass
 
+from .views import RegisterForm  # Import the RegisterForm class
+
 class RegisterView(LoginRequiredMixin, CreateView):
     form_class = RegisterForm
     template_name = 'signup.html'
@@ -20,7 +22,3 @@ class RegisterView(LoginRequiredMixin, CreateView):
             return super().dispatch(request, *args, **kwargs)
         return self.handle_no_permission()
     
-
-def logout_view(request):
-    logout(request)
-    return redirect('login')
