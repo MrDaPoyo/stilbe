@@ -23,4 +23,4 @@ class RegisterView(LoginRequiredMixin, CreateView):
 
 def logout_view(request):
     logout(request)
-    return render('logout.html'), redirect('login')
+    return redirect('login')
