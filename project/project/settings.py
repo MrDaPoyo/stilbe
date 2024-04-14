@@ -42,7 +42,8 @@ INSTALLED_APPS = [
 
     "forum",
     "registrar",
-    "crispy_forms",
+    'crispy_forms', # add this
+    'crispy_bootstrap5', # add this
 ]
 
 MIDDLEWARE = [
