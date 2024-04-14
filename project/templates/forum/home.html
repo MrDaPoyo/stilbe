@@ -9,14 +9,12 @@
         <h1>Forum</h1>
         {% if user.is_authenticated %}
             <p>Welcome, <b>{{ user.get_username }}</b>!</p>
-            <form id="logout-form" method="post" action="{% url 'admin:logout' %}">
+            <form id="logout-form" method="POST" action="{% url 'logout' %}">
                 {% csrf_token %}
-                <a href="{% url 'logout' %}" class="grp-logout" onclick="document.getElementById('logout-form').submit()"> 
-                logout
-                </a>
-              </form>
+                <button type="submit" class="btn button">Logout</button>
+            </form>
         {% else %}
-            <script>window.location.href = "login";</script>
+            <script>window.location.href = "{% url 'login' %}";</script>
         {% endif %}
     </div>
 </div>
