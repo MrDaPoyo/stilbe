@@ -3,13 +3,11 @@ from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
 
-# Create your views here.
+
 class RegisterForm(UserCreationForm):
     pass
-
-from .views import RegisterForm  # Import the RegisterForm class
 
 class RegisterView(LoginRequiredMixin, CreateView):
     form_class = RegisterForm
