@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Forum{% endblock %}
+
+{% block content %}
+<div class="container-xl d-flex align-items-center" style="height: 100vh;">
+    <div class="w-50 h-auto p-3">
+
+        <h1>Forum</h1>
+        {% if user.is_authenticated %}
+            <p>Welcome, <b>{{ user.get_username }}</b>!</p>
+            <form id="logout-form" method="post" action="{% url 'admin:logout' %}">
+                {% csrf_token %}
+                <a href="{% url 'logout' %}" class="grp-logout" onclick="document.getElementById('logout-form').submit()"> 
+                logout
+                </a>
+              </form>
+        {% else %}
+            <script>window.location.href = "login";</script>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
