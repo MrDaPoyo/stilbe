@@ -25,7 +25,6 @@ class RegisterView(AnonymousRequiredMixin, CreateView):
     template_name = 'signup.html'
     success_url = reverse_lazy('login')
     login_url = '/login/'  # Specify the login URL
-    login_url = '/login/'  # Specify the login URL
 
     def dispatch(self, request, *args, **kwargs):
         if self.request.user.is_authenticated:
