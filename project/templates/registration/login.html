@@ -5,7 +5,7 @@
 {% block title %}Log In{% endblock title %}
 {% block content %}
     <div class="container-xl d-flex align-items-center justify-content-center h" style="height: 100vh;">
-        <div class="w-50 h-auto p-3">
+        <div class="w-50 p-3 rounded">
             <h2>Log In</h2>
             <form method="post">
                 {% csrf_token  %}
@@ -13,9 +13,6 @@
                 <p>Don't have an account? Register <a href="{% url 'register' %}">here</a>.</p>
                 <button type="submit" class="btn btn-primary">Log In</button>
             </form>
-        </div>
-        <div class="w-50 h-auto p-3">
-            <img src="{% static 'images/drawing_for_poyo.webp' %}" alt="My Image">
         </div>
     </div>
 {% endblock content %}
