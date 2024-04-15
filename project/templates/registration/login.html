@@ -24,7 +24,7 @@
                 {% csrf_token  %}
                 {{ form|crispy }}
                 <p>Don't have an account? Register <a href="{% url 'register' %}">here</a>.</p>
-                <button type="submit" class="btn btn-primary">Log In</button>
+                <div class="d-grid gap-2"><button type="submit" class="btn btn-outline-primary ">Log In</button></div>
             </form>
         </div>
     </div>
