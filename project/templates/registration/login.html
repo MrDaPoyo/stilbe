@@ -4,11 +4,18 @@
 
 {% block title %}Log In{% endblock title %}
 {% block content %}
+    
     <div class="container-xl flex-row d-flex align-items-center justify-content-center flex" style="height: 100vh;">
         <div class="bg-success.bg-gradient w-auto h-75 flex-row d-flex align-items-center justify-content-center">
             <img src="{% static 'images/window-rain.gif' %}" class="w-75 rounded" alt="cactus">
         </div>
         <div class="w-50 h-75 p-3 flex-column d-flex align-items-center justify-content-center">
+            {% if not user.is_authenticated %}
+                <div class="alert alert-danger h-auto" role="alert">
+                    <strong>Ayo there!</strong> You must be logged-in in order to access Stilbe!
+                </div>
+            {% endif %}
+            {% endif %}
             <h2>Log In</h2>
             <form method="post" class="">
                 {% csrf_token  %}
