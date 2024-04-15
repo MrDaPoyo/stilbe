@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ thread.title }}</h1>
+    <div id="thread-content">
+        {{ thread.content }}
+    </div>
+    <h2>Posts</h2>
+    <div id="post-list">
+        {% for post in posts %}
+            <div class="post">
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.content }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
