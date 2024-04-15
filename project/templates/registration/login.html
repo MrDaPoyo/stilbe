@@ -4,8 +4,11 @@
 
 {% block title %}Log In{% endblock title %}
 {% block content %}
-    <div class="container-xl d-flex align-items-center justify-content-center h" style="height: 100vh;">
-        <div class="w-50 p-3 rounded">
+    <div class="container-xl flex-row d-flex align-items-center justify-content-center flex" style="height: 100vh;">
+        <div class="w-50 p-3 h-auto rounded">
+            <img src="{% static 'images/window-rain.gif' %}" class="w-75 rounded" alt="cactus">
+        </div>
+        <div class="w-25 p-3 rounded">
             <h2>Log In</h2>
             <form method="post">
                 {% csrf_token  %}
