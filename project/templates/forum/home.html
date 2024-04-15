@@ -17,10 +17,13 @@
             <script>window.location.href = "{% url 'login' %}";</script>
         {% endif %}
     </div>
-    <div class="w-50 p-5 bg-primary">
-        {% for user in users %}
-            <p>{{ user.get_username }}</p>
-        {% endfor %}
+    <div class="w-50 p-5 border border-primary rounded">
+        <h3>User List</h3>
+        <ul>
+            {% for user in users %}
+                <li>{{ user.get_username }}</li>
+            {% endfor %}
+        </ul>
     </div>
 </div>
 {% endblock %}
