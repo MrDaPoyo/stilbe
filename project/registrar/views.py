@@ -8,7 +8,14 @@ from django.core.exceptions import PermissionDenied
 class RegisterForm(UserCreationForm):
     pass
 
-class RegisterView(CreateView):
-    form_class = RegisterForm
-    template_name = 'signup.html'
-    success_url = reverse_lazy('login')
+class RegisterView(AccessMixin, CreateView):
+        form_class = RegisterForm
+        template_name = 'signup.html'
+        redirect_authenticated_user = True
+        success_url = reverse_lazy('auth:login')
+        redirect_field_name = 'forum:home'
+
+        def dispatch(self, request, *args, **kwargs):
+            if request.user.is_authenticated:
+                return redirect('home')
+            return super().dispatch(request, *args, **kwargs)
