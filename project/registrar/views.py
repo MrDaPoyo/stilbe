@@ -31,4 +31,3 @@ class RegisterView(AnonymousRequiredMixin, CreateView):
         if self.request.user.is_authenticated:
             return super().dispatch(request, *args, **kwargs)
         return self.handle_no_permission()
-    
