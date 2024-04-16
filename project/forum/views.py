@@ -37,3 +37,9 @@ def threadView(request, pk):
 @login_required
 def redirectHome(request):
     return redirect("home")
+
+@login_required
+def userList(request):
+    User = get_user_model()
+    users = User.objects.all()
+    return render(request, "forum/profile_list.html", {"users":users})
