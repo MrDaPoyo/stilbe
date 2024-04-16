@@ -12,6 +12,7 @@
                 {% csrf_token %}
                 <button type="submit" class="btn button btn-primary">Logout</button>
             </form>
+            <a href="{% url 'profile-list' %}"><button class="btn button btn-primary">User List</button></a>
         {% else %}
             <script>window.location.href = "{% url 'login' %}";</script>
         {% endif %}
