@@ -4,6 +4,7 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth import get_user_model
 from .models import Thread
 from.forms import PostCreationForm
+from django.contrib import messages
 
 
 # Create your views here.
@@ -28,6 +29,7 @@ def threadView(request, pk):
             post.user = user
             post.thread = thread
             post.save()
+            messages.success(request, "Post created successfully!")
             return render(request, "forum/thread.html", {"title": title, "content": content, "user": user, "posts":posts, "form":form})
     return render(request, "forum/thread.html", {"title": title, "content": content, "user": user, "posts":posts, "form":form})
     
