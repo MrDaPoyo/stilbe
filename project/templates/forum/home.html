@@ -5,7 +5,6 @@
 {% block content %}
 <div class="container-xl d-flex align-items-center" style="height: 100vh;">
     <div class="w-50 h-auto p-3">
-        <a href="{% url 'home' %}"> Go Home </a>
         <h1>Forum</h1>
         {% if user.is_authenticated %}
             <p>Welcome, <b>{{ user.get_username }}</b>!</p>
@@ -18,10 +17,10 @@
         {% endif %}
     </div>
     <div class="w-50 m-2 p-4 border border-primary rounded">
-        <h3>User List</h3>
+        <h3>Thread List</h3>
         <ul>
-            {% for user in users %}
-                <li>{{ user.get_username.capitalize }}</li>
+            {% for thread in threads %}
+                <li><a href="thread/{{ thread.id }}">{{ thread.title }}</a></li>
             {% endfor %}
             
         </ul>

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import get_user_model
@@ -12,9 +12,9 @@ from django.contrib import messages
 def home(request):
     User = get_user_model()
     users = User.objects.all() 
-    return render (request, "forum/home.html", {"users":users})
+    return render (request, "forum/home.html", {"threads":Thread.objects.all()})
 
-
+@login_required
 def threadView(request, pk):
     user = request.user
     thread = Thread.objects.get(id=pk)
@@ -33,3 +33,5 @@ def threadView(request, pk):
             return render(request, "forum/thread.html", {"title": title, "content": content, "user": user, "posts":posts, "form":form})
     return render(request, "forum/thread.html", {"title": title, "content": content, "user": user, "posts":posts, "form":form})
     
+def redirectHome(request):
+    return redirect("home")
