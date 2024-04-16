@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{{ thread.title }}</h1>
+<div class="container-xl d-flex align-items-left p-3 flex-column" style="height: 100vh;">
+    <h1>{{ title }}</h1>
     <div id="thread-content">
-        {{ thread.content }}
+        {{ content }}
     </div>
-    <h2>Posts</h2>
+    <h3>Posts:</h3>
     <div id="post-list">
         {% for post in posts %}
             <div class="">
@@ -14,4 +15,5 @@
             </div>
         {% endfor %}
     </div>
+</div>
 {% endblock %}
