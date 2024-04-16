@@ -21,5 +21,13 @@ def threadView(request, pk):
     content = thread.content
     posts = thread.post_set.all()
     form = PostCreationForm()
+    if request.method == "POST":
+        form = PostCreationForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.user = user
+            post.thread = thread
+            post.save()
+            return render(request, "forum/thread.html", {"title": title, "content": content, "user": user, "posts":posts, "form":form})
     return render(request, "forum/thread.html", {"title": title, "content": content, "user": user, "posts":posts, "form":form})
     
