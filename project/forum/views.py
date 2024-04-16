@@ -18,6 +18,7 @@ def home(request):
 def threadView(request, pk):
     user = request.user
     thread = Thread.objects.get(id=pk)
+    poster = thread.user
     title = thread.title
     content = thread.content
     posts = thread.post_set.all()
@@ -31,7 +32,8 @@ def threadView(request, pk):
             post.save()
             messages.success(request, "Post created successfully!")
             return render(request, "forum/thread.html", {"title": title, "content": content, "user": user, "posts":posts, "form":form})
-    return render(request, "forum/thread.html", {"title": title, "content": content, "user": user, "posts":posts, "form":form})
-    
+    return render(request, "forum/thread.html", {"title": title, "content": content, "user": user, "posts":posts, "poster":poster, "form":form})
+
+@login_required
 def redirectHome(request):
     return redirect("home")
