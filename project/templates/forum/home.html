@@ -5,7 +5,7 @@
 {% block content %}
 <div class="container-xl d-flex align-items-center" style="height: 100vh;">
     <div class="w-50 h-auto p-3">
-
+        <a href="{% url 'home' %}"> Go Home </a>
         <h1>Forum</h1>
         {% if user.is_authenticated %}
             <p>Welcome, <b>{{ user.get_username }}</b>!</p>

@@ -2,19 +2,34 @@
 
 {% block content %}
 <div class="container-xl d-flex align-items-left p-3 flex-column" style="height: 100vh;">
-    <h1><strong> {{ user }} </strong>: {{ title }}</h1>
+    <h1><strong class="strong"> {{ user }} </strong>: {{ title }}</h1>
     <div id="thread-content">
-        <h4> {{ content }} </h4>
-    </div>
-    <h3>Posts:</h3>
-    <div id="post-list">
-        {% for post in posts %}
-            <div class="border border-primary rounded m-1 p-3 w-100">
-                <strong>{{ post.user }}</strong>
-                <h3>{{ post.title }}</h3>
-                <p>{{ post.content }}</p>
+        <div class="card w-auto h-auto">
+            <div class="card-body">
+              <h4 class="card-title m-3"> {{ content }} </h4>
             </div>
-        {% endfor %}
+          </div>
+    </div></br>
+    <h3>Posts:</h3>
+    <div class="container-xl d-flex align-items-left flex-row">
+        <div class="w-75" id="post-list">
+            {% for post in posts %}
+            <div class="card w-100 h-auto m-4">
+                <div class="card-body">
+                  <h5 class="card-title"> {{ post.user }}</h5>
+                  <p class="card-text"> {{ post.content }}</p>
+                  <a href="#" class="card-link">{{ post.user }}'s profile.</a>
+                </div>
+              </div>
+            {% endfor %}
+        </div>
+        <div class="w-25"></div>
+        <div class="w-50 h-50 m-4">
+            <form id="post-form" class="card w-100 h-100" method="POST">
+                <p>Post a reply!</p>
+                {% csrf_token %}
+                {{ form }}
+            </form>
     </div>
 </div>
 {% endblock %}
