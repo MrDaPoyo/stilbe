@@ -14,7 +14,9 @@ def home(request):
 
 
 def threadView(request, pk):
+    user = request.user
     thread = Thread.objects.get(id=pk)
     title = thread.title
     content = thread.content
-    return render(request, "forum/thread.html", {"title": title, "content": content})
+    posts = thread.post_set.all()
+    return render(request, "forum/thread.html", {"title": title, "content": content, "user": user, "posts":posts})

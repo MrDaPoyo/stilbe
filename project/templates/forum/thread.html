@@ -2,14 +2,15 @@
 
 {% block content %}
 <div class="container-xl d-flex align-items-left p-3 flex-column" style="height: 100vh;">
-    <h1>{{ title }}</h1>
+    <h1>{{ user }}: {{ title }}</h1>
     <div id="thread-content">
-        {{ content }}
+        <h3> {{ content }} </h3>
     </div>
     <h3>Posts:</h3>
     <div id="post-list">
         {% for post in posts %}
-            <div class="">
+            <div class="border border-primary rounded m-1 p-3">
+                <strong>{{ post.user }}</strong>
                 <h3>{{ post.title }}</h3>
                 <p>{{ post.content }}</p>
             </div>
