@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container-xl d-flex align-items-left p-3 flex-column" style="height: 100vh;">
+<div class="container-xl d-flex align-items-left p-3 flex-column">
     <h1><strong class="strong"> {{ user }} </strong>: {{ title }}</h1>
     <div id="thread-content">
         <div class="card w-auto h-auto">
@@ -29,6 +29,7 @@
                 <p>Post a reply!</p>
                 {% csrf_token %}
                 {{ form }}
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
     </div>
 </div>

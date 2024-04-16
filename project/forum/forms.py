@@ -1,12 +1,15 @@
 from django import forms
+from django.forms.widgets import HiddenInput
+from django.contrib.auth import User
 from .models import Thread, Post
 
-class ThreadCreationForm(forms.ModelForm):
-    title = forms.CharField(required=True, widget=forms.TextInput(attrs={'placeholder': 'Title', 'class': 'form-control'}))
+class PostCreationForm(forms.ModelForm):
+    user = forms.CharField(required=True, widget=HiddenInput())
+    thread = forms.CharField(required=True, widget=HiddenInput())
     content = forms.CharField(required=True, widget=forms.Textarea(attrs={'placeholder': 'Write your initial post here...', 'class': 'form-control'}))
     
     class Meta:
-        model = Thread
-        fields = ['title', 'content']
+        model = Post
+        fields = ['thread', 'content']
 
         

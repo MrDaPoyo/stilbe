@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import get_user_model
 from .models import Thread
+from.forms import PostCreationForm
 
 
 # Create your views here.
@@ -19,4 +20,6 @@ def threadView(request, pk):
     title = thread.title
     content = thread.content
     posts = thread.post_set.all()
-    return render(request, "forum/thread.html", {"title": title, "content": content, "user": user, "posts":posts})
+    form = PostCreationForm()
+    return render(request, "forum/thread.html", {"title": title, "content": content, "user": user, "posts":posts, "form":form})
+    
