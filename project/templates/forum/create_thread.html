@@ -4,11 +4,11 @@
 {% block title %}Create Thread{% endblock %}
 
 {% block content %}
-<div class="container-xl d-flex align-items-center p-5" style="height: 100vh;">
-    <form id="post-form" class="card w-100 h-100 p-3" method="POST">
+<div class="container-xl d-flex align-items-center p-3">
+    <form id="post-form" class="card w-100 h-100 p-2" method="POST">
         <h3>Post a Thread!</h3>
         {% csrf_token %}
-        <div class="m-1">{{ form|crispy }}</div>
+        {{ form|crispy }}
         <button type="submit" class="btn btn-primary m-1 ">Create</button>
     </form>
 </div>

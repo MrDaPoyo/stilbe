@@ -149,3 +149,4 @@ MESSAGE_TAGS = {
     messages.WARNING: 'alert-warning',
     messages.ERROR: 'alert-danger',
 }
+CSRF_TRUSTED_ORIGINS = ['https://effective-halibut-4jjgrp96xgv9276xj-8000.app.github.dev/', 'https://localhost:8000']

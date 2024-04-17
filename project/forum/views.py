@@ -5,6 +5,7 @@ from django.contrib.auth import get_user_model
 from .models import Thread
 from.forms import PostCreationForm, ThreadCreationForm
 from django.contrib import messages
+import time
 
 
 # Create your views here.
@@ -12,7 +13,7 @@ from django.contrib import messages
 def home(request):
     User = get_user_model()
     users = User.objects.all() 
-    return render (request, "forum/home.html", {"threads":Thread.objects.all()})
+    return render(request, "forum/home.html", {"threads":Thread.objects.all()})
 
 @login_required
 def threadView(request, pk):
@@ -36,7 +37,7 @@ def threadView(request, pk):
 
 @login_required
 def redirectHome(request):
-    return redirect(request, "home")
+    return redirect("home")
 
 @login_required
 def userList(request):
@@ -56,6 +57,7 @@ def createThread(request):
             thread.title = form.cleaned_data["title"]
             thread.content = form.cleaned_data["content"]
             thread.save()
-            messages.success(request, "Post created successfully!")
-            return redirect("/thread/"+str(thread.id)+"/")
+            messages.success(request, "Thread created successfully!")
+            time.sleep(5)
+            return redirect("/thread/"+str(thread.id))
     return render(request, "forum/create_thread.html", {"form":form})

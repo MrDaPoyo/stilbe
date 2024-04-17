@@ -10,7 +10,7 @@ class PostCreationForm(forms.ModelForm):
         fields = ['content']
 
 class ThreadCreationForm(forms.ModelForm):
-    title = forms.CharField(required=True, widget=forms.Textarea(attrs={'placeholder': 'Create a thread.', 'class': 'form-control'}))
+    title = forms.CharField(required=True, widget=forms.Textarea(attrs={'placeholder': 'Create a thread.', 'class': 'form-control','cols': 20, 'rows': 1}))
     content = forms.CharField(required=True, widget=forms.Textarea(attrs={'placeholder': 'Create a thread.', 'class': 'form-control'}))
     
     class Meta:

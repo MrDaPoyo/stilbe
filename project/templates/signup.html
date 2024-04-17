@@ -4,10 +4,9 @@
 {% block title %}Register{% endblock title %}
 {% block content %}
 <div class="container-xl d-flex align-items-center justify-content-center h" style="height: 100vh;">
-    <div class="w-50 h-auto p-3">
+    <div class="w-100 h-auto p-2">
         <h2>Register</h2>
-    
-        <form method="post">
+        <form method="post" class="w-75">
             {% csrf_token  %}
             {{ form|crispy }}
             <p>Have an account? Login <a href="{% url 'auth:login' %}">here</a></p>
