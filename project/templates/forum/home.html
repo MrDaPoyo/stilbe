@@ -8,11 +8,13 @@
         <h1>Forum</h1>
         {% if user.is_authenticated %}
             <p>Welcome, <b>{{ user.get_username }}</b>!</p>
-            <form id="logout-form" method="POST" action="{% url 'logout' %}">
-                {% csrf_token %}
-                <button type="submit" class="btn button btn-primary">Logout</button>
-            </form>
-            <a href="{% url 'profile-list' %}"><button class="btn button btn-primary">User List</button></a>
+            <div class="d-flex flex-row w-100">    
+                <form id="logout-form" class="" method="POST" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn button btn-primary">Logout</button>
+                </form><div class="p-1"></div>
+                <a href="{% url 'profile-list' %}"><button class="btn button btn-primary">User List</button></a>
+            </div>
         {% else %}
             <script>window.location.href = "{% url 'login' %}";</script>
         {% endif %}
