@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import get_user_model
 from .models import Thread
-from.forms import PostCreationForm
+from.forms import PostCreationForm, ThreadCreationForm
 from django.contrib import messages
 
 
@@ -43,3 +43,9 @@ def userList(request):
     User = get_user_model()
     users = User.objects.all()
     return render(request, "forum/profile_list.html", {"users":users})
+
+@login_required
+def userList(request):
+    User = get_user_model()
+    form = ThreadCreationForm()
+    return render(request, "forum/create_thread.html", {"form":form})
