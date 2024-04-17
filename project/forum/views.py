@@ -36,7 +36,7 @@ def threadView(request, pk):
 
 @login_required
 def redirectHome(request):
-    return redirect("home")
+    return redirect(request, "home")
 
 @login_required
 def userList(request):
@@ -45,7 +45,17 @@ def userList(request):
     return render(request, "forum/profile_list.html", {"users":users})
 
 @login_required
-def userList(request):
+def createThread(request):
     User = get_user_model()
     form = ThreadCreationForm()
+    if request.method == "POST":
+        form = ThreadCreationForm(request.POST)
+        if form.is_valid():
+            thread = form.save(commit=False)
+            thread.user = request.user
+            thread.title = form.cleaned_data["title"]
+            thread.content = form.cleaned_data["content"]
+            thread.save()
+            messages.success(request, "Post created successfully!")
+            return redirect("/thread/"+str(thread.id)+"/")
     return render(request, "forum/create_thread.html", {"form":form})
