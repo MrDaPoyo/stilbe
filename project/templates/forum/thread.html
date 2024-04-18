@@ -29,6 +29,7 @@
             {% for post in posts %}
             <div class="card w-100 h-auto m-4">
                 <div class="card-body">
+                  {% if user.is_staff %}<button class="btn btn-danger">Delete</button>{% endif %}
                   <h4 class="card-title"> {{ post.user }}</h4>
                   <h6 class="card-subtitle"> {{ post.created_at }}</h6>
                   <p class="card-text"> {{ post.content }}</p>
