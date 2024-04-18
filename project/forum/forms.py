@@ -16,3 +16,9 @@ class ThreadCreationForm(forms.ModelForm):
     class Meta:
         model = Thread
         fields = ['title', 'content']
+
+class PostDeletionForm(forms.ModelForm):
+    id = forms.IntegerField(widget=HiddenInput())
+    class Meta:
+        model = Post
+        fields = ['id']

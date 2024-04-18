@@ -25,6 +25,7 @@ def threadView(request, pk):
     created_at = thread.created_at
     posts = thread.post_set.all()
     form = PostCreationForm()
+    deletion_form = PostDeletionForm()
 
     context = {
         "title": title,
