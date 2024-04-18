@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import get_user_model
 from .models import Thread
-from.forms import PostCreationForm, ThreadCreationForm
+from .forms import PostCreationForm, ThreadCreationForm, PostDeletionForm
 from django.contrib import messages
 import time
 
@@ -73,3 +73,15 @@ def createThread(request):
             time.sleep(5)
             return redirect("/thread/"+str(thread.id))
     return render(request, "forum/create_thread.html", {"form":form})
+
+@login_required
+def deletePost(request):
+    form = PostDeletionForm()
+    if form.is_valid():
+        post = form.save(commit=False)
+        post.id = form.cleaned_data["id"]
+        post.delete()
+        messages.success(request, "Post deleted successfully!")
+        return redirect("home")
+    else:
+        pass
