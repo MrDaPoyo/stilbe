@@ -22,8 +22,20 @@ def threadView(request, pk):
     poster = thread.user
     title = thread.title
     content = thread.content
+    created_at = thread.created_at
     posts = thread.post_set.all()
     form = PostCreationForm()
+
+    context = {
+        "title": title,
+        "content": content,
+        "user": user,
+        "posts": posts,
+        "form": form,
+        "created_at": created_at,
+        "poster": poster
+    }
+
     if request.method == "POST":
         form = PostCreationForm(request.POST)
         if form.is_valid():
@@ -32,8 +44,8 @@ def threadView(request, pk):
             post.thread = thread
             post.save()
             messages.success(request, "Post created successfully!")
-            return render(request, "forum/thread.html", {"title": title, "content": content, "user": user, "posts":posts, "form":form})
-    return render(request, "forum/thread.html", {"title": title, "content": content, "user": user, "posts":posts, "poster":poster, "form":form})
+            return render(request, "forum/thread.html", context)
+    return render(request, "forum/thread.html", context)
 
 @login_required
 def redirectHome(request):

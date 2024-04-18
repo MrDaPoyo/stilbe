@@ -2,7 +2,7 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-{% block title %}Create thread{% endblock %}
+{% block title %}Thread {{thread.title}} {% endblock %}
 
 {% block content %}
 <div class="container-xl d-flex align-items-left p-3 flex-column">
@@ -18,6 +18,7 @@
     <div id="thread-content">
         <div class="card w-auto h-auto">
             <div class="card-body">
+              <h6 class="card-subtitle">Posted at {{ created_at }}</h6>
               <h4 class="card-title m-3"> {{ content }} </h4>
             </div>
           </div>
@@ -28,9 +29,9 @@
             {% for post in posts %}
             <div class="card w-100 h-auto m-4">
                 <div class="card-body">
-                  <h5 class="card-title"> {{ post.user }}</h5>
+                  <h4 class="card-title"> {{ post.user }}</h4>
+                  <h6 class="card-subtitle"> {{ post.created_at }}</h6>
                   <p class="card-text"> {{ post.content }}</p>
-                  <a href="#" class="card-link">{{ post.user }}'s profile.</a>
                 </div>
               </div>
             {% endfor %}
