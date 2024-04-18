@@ -29,8 +29,7 @@
             {% for post in posts %}
             <div class="card w-100 h-auto m-4">
                 <div class="card-body">
-                  {% if user.is_staff %}{{ user.id }}{% endif %}
-                  <h4 class="card-title"> {{ post.user }}; User ID:{% if user.is_staff %}{{ user.id }}{% endif %}</h4>
+                  <h4 class="card-title"> {{ post.user }}; User ID:{% if user.is_staff %}{{ post.user.id }}{% endif %}</h4>
                   <h6 class="card-subtitle"> {{ post.created_at }}</h6>
                   <p class="card-text"> {{ post.content }}</p>
                 </div>
