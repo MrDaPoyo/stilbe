@@ -64,7 +64,6 @@ LOGIN_URL = "/auth/login"
 LOGIN_REDIRECT_URL = "/home"
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
 
 TEMPLATES = [
     {
@@ -130,7 +129,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = "static/"
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
@@ -149,4 +147,4 @@ MESSAGE_TAGS = {
     messages.WARNING: 'alert-warning',
     messages.ERROR: 'alert-danger',
 }
-CSRF_TRUSTED_ORIGINS = ['https://effective-halibut-4jjgrp96xgv9276xj-8000.app.github.dev/', 'https://localhost:8000']
+CSRF_TRUSTED_ORIGINS = ['https://effective-halibut-4jjgrp96xgv9276xj-8000.app.github.dev/', 'http://localhost', 'http://127.0.0.1', 'http://0.0.0.0']
