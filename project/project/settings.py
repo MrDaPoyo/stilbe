@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-xq&i44c0it47^y88+m#t9jg(y0(g!*c@nh_7n14_l2+qj35z!w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["https://localhost","https://127.0.0.1","https://0.0.0.0"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -147,4 +147,4 @@ MESSAGE_TAGS = {
     messages.WARNING: 'alert-warning',
     messages.ERROR: 'alert-danger',
 }
-CSRF_TRUSTED_ORIGINS = ["https://localhost","https://127.0.0.1","https://0.0.0.0"]
+CSRF_TRUSTED_ORIGINS = ["http://localhost","http://127.0.0.1","http://0.0.0.0"]
