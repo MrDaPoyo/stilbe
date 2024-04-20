@@ -147,4 +147,8 @@ MESSAGE_TAGS = {
     messages.WARNING: 'alert-warning',
     messages.ERROR: 'alert-danger',
 }
+<<<<<<< HEAD
 CSRF_TRUSTED_ORIGINS = ["https://localhost","https://127.0.0.1","https://0.0.0.0"]
+=======
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1', 'http://localhost', 'http://0.0.0.0']
+>>>>>>> ee8aeb4 (init)
