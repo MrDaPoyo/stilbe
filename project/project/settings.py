@@ -149,4 +149,4 @@ MESSAGE_TAGS = {
     messages.WARNING: 'alert-warning',
     messages.ERROR: 'alert-danger',
 }
-CSRF_TRUSTED_ORIGINS = ["http://localhost","http://127.0.0.1","http://0.0.0.0"]
+CSRF_TRUSTED_ORIGINS = ["http://localhost","http://127.0.0.1","http://0.0.0.0", "https://king-prawn-app-bdaki.ondigitalocean.app", "https://ondigitalocean.app"]
