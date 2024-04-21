@@ -63,8 +63,6 @@ LOGOUT_REDIRECT_URL = "/auth/login"
 LOGIN_URL = "/auth/login"
 LOGIN_REDIRECT_URL = "/home"
 
-STATIC_URL = '/static/'
-
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
