@@ -55,7 +55,6 @@ MIDDLEWARE = [
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
-    "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
@@ -151,3 +150,4 @@ MESSAGE_TAGS = {
     messages.ERROR: 'alert-danger',
 }
 CSRF_TRUSTED_ORIGINS = ["http://localhost","http://127.0.0.1","http://0.0.0.0", "https://king-prawn-app-bdaki.ondigitalocean.app", "https://ondigitalocean.app"]
+SESSION_COOKIE_SECURE = True
