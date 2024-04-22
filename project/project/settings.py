@@ -149,5 +149,5 @@ MESSAGE_TAGS = {
     messages.WARNING: 'alert-warning',
     messages.ERROR: 'alert-danger',
 }
-CSRF_TRUSTED_ORIGINS = ["http://localhost","http://127.0.0.1","http://0.0.0.0", "http://ondigitalocean.app", "https://ondigitalocean.app", "https://stilbe.com"]
+CSRF_TRUSTED_ORIGINS = ["https://localhost","https://127.0.0.1","https://0.0.0.0", "http://ondigitalocean.app", "https://ondigitalocean.app", "https://stilbe.com"]
 SESSION_COOKIE_SECURE = False
