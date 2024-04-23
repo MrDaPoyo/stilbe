@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     "registrar",
     'crispy_forms', # add this
     'crispy_bootstrap5', # add this
-    'captcha',
 ]
 
 MIDDLEWARE = [
