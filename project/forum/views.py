@@ -48,7 +48,6 @@ def threadView(request, pk):
             return render(request, "forum/thread.html", context)
     return render(request, "forum/thread.html", context)
 
-@login_required
 def redirectHome(request):
     return redirect("home")
 
