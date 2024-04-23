@@ -45,7 +45,11 @@ INSTALLED_APPS = [
     "registrar",
     'crispy_forms', # add this
     'crispy_bootstrap5', # add this
+<<<<<<< HEAD
     'captcha',
+=======
+    "captcha",
+>>>>>>> 58e35e3 (csrf)
 ]
 
 MIDDLEWARE = [
@@ -149,5 +153,9 @@ MESSAGE_TAGS = {
     messages.WARNING: 'alert-warning',
     messages.ERROR: 'alert-danger',
 }
+<<<<<<< HEAD
 CSRF_TRUSTED_ORIGINS = ["https://localhost","https://127.0.0.1","https://0.0.0.0", "http://ondigitalocean.app", "https://ondigitalocean.app", "https://stilbe.com"]
 SESSION_COOKIE_SECURE = False
+=======
+CSRF_TRUSTED_ORIGINS = ["http://localhost","http://127.0.0.1","http://0.0.0.0", "stilbe.com"]
+>>>>>>> 58e35e3 (csrf)
