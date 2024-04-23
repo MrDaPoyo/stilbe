@@ -13,6 +13,7 @@ import time
 def home(request):
     User = get_user_model()
     users = User.objects.all() 
+    captcha = True
     return render(request, "forum/home.html", {"threads":Thread.objects.all()})
 
 @login_required
