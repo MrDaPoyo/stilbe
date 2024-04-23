@@ -9,6 +9,6 @@ urlpatterns = [
     path('register/', RegisterView.as_view(redirect_authenticated_user=True), name='register'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path("login/", auth_views.LoginView.as_view(redirect_authenticated_user=True)),
-    path('auth/', include(("django.contrib.auth.urls", "auth"))),  
+    path('', include(("django.contrib.auth.urls", "auth"))),  
     path('', include("captcha.urls")),
 ]
