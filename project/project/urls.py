@@ -23,5 +23,4 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("auth/", include('registrar.urls')),
     path("", include('forum.urls')),
-    path('', include("captcha.urls")),
 ]

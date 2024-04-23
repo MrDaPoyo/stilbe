@@ -4,7 +4,6 @@ from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import AccessMixin
 from django.core.exceptions import PermissionDenied
-from captcha.fields import CaptchaField
 from .forms import RegisterForm
 
 class RegisterView(AccessMixin, CreateView):
@@ -13,8 +12,6 @@ class RegisterView(AccessMixin, CreateView):
         redirect_authenticated_user = True
         success_url = reverse_lazy('auth:login')
         redirect_field_name = 'forum:home'
-
-        captcha = CaptchaField()
 
         def dispatch(self, request, *args, **kwargs):
             if request.user.is_authenticated:
