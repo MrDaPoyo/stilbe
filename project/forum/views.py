@@ -12,8 +12,6 @@ import time
 @login_required
 def home(request):
     User = get_user_model()
-    users = User.objects.all() 
-    captcha = True
     return render(request, "forum/home.html", {"threads":Thread.objects.all()})
 
 @login_required
@@ -73,15 +71,3 @@ def createThread(request):
             time.sleep(5)
             return redirect("/thread/"+str(thread.id))
     return render(request, "forum/create_thread.html", {"form":form})
-
-@login_required
-def deletePost(request):
-    form = PostDeletionForm()
-    if form.is_valid():
-        post = form.save(commit=False)
-        post.id = form.cleaned_data["id"]
-        post.delete()
-        messages.success(request, "Post deleted successfully!")
-        return redirect("home")
-    else:
-        pass
