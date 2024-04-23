@@ -7,15 +7,14 @@
 <div>
     <div class="container-xl flex-row d-flex align-items-center justify-content-center flex" style="height: 100vh;">
         <div class="w-100 flex-column d-flex align-items-center justify-content-center">
-            {% if not user.is_authenticated %}
+
                 {% if not user.is_authenticated %}
                     {% if request.GET %}
                         <div class="alert alert-danger h-auto fade show" role="alert">
-                            <p><strong>Ayo there!</strong> You must be logged in to access Stilbe!</p>
+                            <p><strong>Ey there!</strong> You must be logged in to access Stilbe!</p>
                         </div>
                     {% endif %}
                 {% endif %}
-            {% endif %}
             <h2>Log In</h2>
             <form method="post" class="h-50 w-100">
                 {% csrf_token  %}
