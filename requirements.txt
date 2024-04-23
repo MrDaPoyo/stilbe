@@ -1,5 +1,5 @@
 django==5.0.4
-django-crispy-forms==2.1
-crispy-bootstrap5==2024.2
+django-crispy-forms
+crispy-bootstrap5
 django-simple-captcha
-gunicorn==22.0.0
+gunicorn
