@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-xq&i44c0it47^y88+m#t9jg(y0(g!*c@nh_7n14_l2+qj35z!w"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -150,4 +150,3 @@ MESSAGE_TAGS = {
 }
 CSRF_TRUSTED_ORIGINS = ["https://localhost","https://127.0.0.1","https://0.0.0.0", "https://ondigitalocean.app", "https://stilbe.com"]
 SESSION_COOKIE_SECURE = False
-SESSION_COOKIE_AGES = 60 * 60 * 24 * 7
